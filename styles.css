@@ -910,6 +910,7 @@ h2 {
 @media (max-width: 540px) {
   :root {
     --mobile-gutter: 18px;
+    --mobile-card-gap: 32px;
   }
 
   .site-header {
@@ -1099,8 +1100,15 @@ h2 {
   .plan-grid,
   .assessment-grid,
   .testimonial-grid {
-    gap: 28px;
-    row-gap: 28px;
+    gap: var(--mobile-card-gap);
+    row-gap: var(--mobile-card-gap);
+  }
+
+  .experience-card,
+  .team-grid article,
+  .plan-card,
+  .testimonial-grid blockquote {
+    margin: 0;
   }
 
   .plan-card {
