@@ -285,7 +285,9 @@ a {
   max-width: none;
   padding-inline: max(16px, calc((100vw - var(--max)) / 2));
   color: white;
-  background: var(--bg);
+  background:
+    linear-gradient(180deg, rgba(8, 9, 11, 0.96), rgba(18, 18, 18, 0.98)),
+    var(--bg);
 }
 
 .about-grid,
@@ -1015,7 +1017,7 @@ h2 {
   }
 
   .dark {
-    padding-inline: 12px;
+    padding-inline: 0;
     padding-top: 68px;
     padding-bottom: 68px;
   }
@@ -1038,6 +1040,29 @@ h2 {
     margin-bottom: 28px;
   }
 
+  .plans-heading,
+  .plan-subheading {
+    max-width: calc(100vw - 24px);
+    margin-inline: auto;
+  }
+
+  .plans-heading h2,
+  .plan-subheading h2 {
+    max-width: 100%;
+    font-size: clamp(1.95rem, 10vw, 2.85rem);
+    overflow-wrap: anywhere;
+  }
+
+  .plan-subheading h2 {
+    max-width: 330px;
+  }
+
+  .plans-heading p,
+  .plan-subheading p {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
   .section-heading p,
   .about-grid p,
   .plan-card p,
@@ -1053,6 +1078,11 @@ h2 {
 
   .plan-card {
     padding: 22px;
+  }
+
+  .plans .plan-grid {
+    width: min(100% - 24px, var(--max));
+    margin-inline: auto;
   }
 
   .plan-card .price,
