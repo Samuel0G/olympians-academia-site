@@ -201,6 +201,38 @@ a {
   max-width: 760px;
 }
 
+.hero-content .eyebrow,
+.hero h1,
+.hero p,
+.hero-actions,
+.hero-stats .hero-stat {
+  animation: fadeLift 0.86s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hero h1 {
+  animation-delay: 90ms;
+}
+
+.hero p {
+  animation-delay: 180ms;
+}
+
+.hero-actions {
+  animation-delay: 270ms;
+}
+
+.hero-stats .hero-stat:nth-child(1) {
+  animation-delay: 360ms;
+}
+
+.hero-stats .hero-stat:nth-child(2) {
+  animation-delay: 450ms;
+}
+
+.hero-stats .hero-stat:nth-child(3) {
+  animation-delay: 540ms;
+}
+
 .eyebrow,
 .section-label {
   margin: 0 0 16px;
@@ -210,11 +242,32 @@ a {
 }
 
 .hero h1 {
+  position: relative;
   max-width: 760px;
   margin: 0;
   font-size: clamp(3.4rem, 9vw, 7.4rem);
   line-height: 0.9;
   text-transform: uppercase;
+  background: linear-gradient(
+    105deg,
+    #ffffff 0%,
+    #ffffff 44%,
+    #ff3b31 48%,
+    #ffd0cc 50%,
+    #ff3b31 52%,
+    #ffffff 56%,
+    #ffffff 100%
+  );
+  background-size: 420% 100%;
+  background-position: 140% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: titleTextShine 2.1s ease-in-out 0.9s 1;
+}
+
+.title-line {
+  display: block;
 }
 
 .hero p {
@@ -769,8 +822,8 @@ h2 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 56px;
-  height: 56px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   color: white;
   background: #25d366;
@@ -784,30 +837,63 @@ h2 {
 }
 
 .whatsapp-float svg {
-  width: 31px;
-  height: 31px;
+  width: 34px;
+  height: 34px;
   fill: currentColor;
 }
 
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 32px, 0);
-  transition: opacity 0.72s ease, transform 0.72s cubic-bezier(0.2, 0.8, 0.2, 1);
+  filter: blur(8px);
+  transform: translate3d(0, 26px, 0) scale(0.985);
+  transition:
+    opacity 0.82s ease,
+    filter 0.82s ease,
+    transform 0.82s cubic-bezier(0.2, 0.8, 0.2, 1);
   transition-delay: var(--delay, 0ms);
-  will-change: opacity, transform;
+  will-change: opacity, filter, transform;
 }
 
 .reveal.from-left {
-  transform: translate3d(-42px, 0, 0);
+  transform: translate3d(0, 26px, 0) scale(0.985);
 }
 
 .reveal.from-right {
-  transform: translate3d(42px, 0, 0);
+  transform: translate3d(0, 26px, 0) scale(0.985);
 }
 
 .reveal.is-visible {
   opacity: 1;
+  filter: blur(0);
   transform: translate3d(0, 0, 0);
+}
+
+@keyframes fadeLift {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes titleTextShine {
+  0% {
+    background-position: 140% 0;
+  }
+
+  55% {
+    background-position: -45% 0;
+  }
+
+  100% {
+    background-position: -140% 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -823,9 +909,18 @@ h2 {
     animation-iteration-count: 1 !important;
   }
 
-  .reveal {
+  .reveal,
+  .reveal.from-left,
+  .reveal.from-right {
     opacity: 1;
+    filter: none;
     transform: none;
+  }
+
+  .hero h1 {
+    animation: none;
+    background: none;
+    color: white;
   }
 }
 
@@ -887,6 +982,7 @@ h2 {
   .assessment-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
+    gap: 26px;
   }
 
   .about-photo,
@@ -910,7 +1006,6 @@ h2 {
 @media (max-width: 540px) {
   :root {
     --mobile-gutter: 18px;
-    --mobile-card-gap: 42px;
   }
 
   .site-header {
@@ -1051,7 +1146,6 @@ h2 {
 
   .plans-heading,
   .plan-subheading {
-    width: 100%;
     max-width: none;
     margin-inline: 0;
   }
@@ -1065,7 +1159,6 @@ h2 {
   }
 
   .plan-subheading h2 {
-    max-width: 100%;
     font-size: clamp(2rem, 9vw, 2.55rem);
   }
 
@@ -1077,6 +1170,14 @@ h2 {
     overflow-wrap: anywhere;
   }
 
+  .experience-grid,
+  .team-grid,
+  .plan-grid,
+  .assessment-grid,
+  .testimonial-grid {
+    gap: 22px;
+  }
+
   .section-heading p,
   .about-grid p,
   .plan-card p,
@@ -1085,57 +1186,40 @@ h2 {
   }
 
   .experience-card h3,
+  .team-grid h3 {
+    margin-top: 24px;
+  }
+
+  .experience-card h3,
   .team-grid h3,
   .plan-card h3 {
     font-size: 1.28rem;
   }
 
-  .experience-card h3,
-  .team-grid h3 {
-    margin-top: 24px;
-  }
-
-  .experience-grid,
-  .team-grid,
-  .plan-grid,
-  .assessment-grid,
-  .testimonial-grid {
-    display: block;
-  }
-
-  .experience-card,
-  .team-grid article,
   .plan-card,
   .testimonial-grid blockquote {
-    width: 100%;
-    margin: 0;
+    padding: 28px;
   }
 
-  .experience-grid > * + *,
-  .team-grid > * + *,
-  .plan-grid > * + *,
-  .assessment-grid > * + *,
-  .testimonial-grid > * + * {
-    margin-top: var(--mobile-card-gap) !important;
-  }
-
-  .plan-card {
-    padding: 20px;
-  }
-
-  .plans .plan-grid {
-    width: 100%;
-    margin-inline: 0;
+  .plan-card h3 {
+    margin: 14px 0 8px;
+    font-size: 1.45rem;
   }
 
   .plan-card .price,
   .assessment-grid .plan-card .price {
-    font-size: clamp(2rem, 11vw, 2.6rem);
+    font-size: clamp(2rem, 8vw, 2.35rem);
+  }
+
+  .plan-card p {
+    margin-top: 14px;
+    font-size: 0.96rem;
+    line-height: 1.55;
   }
 
   .plan-card .button {
-    min-height: 44px;
-    margin-top: 16px;
+    min-height: 46px;
+    margin-top: 24px;
   }
 
   .plan-note {
@@ -1146,7 +1230,11 @@ h2 {
 
   .testimonial-grid blockquote {
     min-height: auto;
-    padding: 22px;
+  }
+
+  .team-grid h3,
+  .team-grid p {
+    padding-inline: 24px;
   }
 
   .contact-section {
@@ -1177,19 +1265,13 @@ h2 {
   .whatsapp-float {
     right: 12px;
     bottom: 78px;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
   }
 
   .whatsapp-float svg {
-    width: 27px;
-    height: 27px;
-  }
-
-  .reveal,
-  .reveal.from-left,
-  .reveal.from-right {
-    transform: translate3d(0, 24px, 0);
+    width: 31px;
+    height: 31px;
   }
 
   .footer-nav {

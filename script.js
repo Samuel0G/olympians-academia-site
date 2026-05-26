@@ -18,6 +18,7 @@ if (menuToggle && navMenu) {
 
 const revealItems = document.querySelectorAll(".reveal");
 const counters = document.querySelectorAll(".counter");
+const supportsIntersectionObserver = "IntersectionObserver" in window;
 
 const animateCounter = (counter) => {
   if (counter.dataset.counted === "true") return;
@@ -40,7 +41,7 @@ const animateCounter = (counter) => {
   requestAnimationFrame(tick);
 };
 
-if ("IntersectionObserver" in window) {
+if (supportsIntersectionObserver) {
   counters.forEach((counter) => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -58,7 +59,7 @@ if ("IntersectionObserver" in window) {
   });
 
   revealItems.forEach((item, index) => {
-    item.style.setProperty("--delay", `${Math.min(index % 3, 2) * 90}ms`);
+    item.style.setProperty("--delay", `${Math.min(index % 3, 2) * 80}ms`);
   });
 
   const revealObserver = new IntersectionObserver(
@@ -71,8 +72,8 @@ if ("IntersectionObserver" in window) {
       });
     },
     {
-      threshold: 0.16,
-      rootMargin: "0px 0px -70px",
+      threshold: 0.12,
+      rootMargin: "0px 0px -48px",
     }
   );
 
