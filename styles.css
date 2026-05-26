@@ -908,12 +908,16 @@ h2 {
 }
 
 @media (max-width: 540px) {
+  :root {
+    --mobile-gutter: 18px;
+  }
+
   .site-header {
     min-height: auto;
   }
 
   .nav {
-    width: min(100% - 24px, var(--max));
+    width: calc(100% - (var(--mobile-gutter) * 2));
     min-height: 72px;
     gap: 12px;
   }
@@ -951,7 +955,7 @@ h2 {
   }
 
   .hero {
-    width: min(100% - 24px, var(--max));
+    width: calc(100% - (var(--mobile-gutter) * 2));
     min-width: 0;
     gap: 28px;
     padding-top: 44px;
@@ -1012,15 +1016,15 @@ h2 {
   }
 
   .section {
-    width: min(100% - 24px, var(--max));
-    padding: 68px 0;
+    width: 100%;
+    padding: 68px var(--mobile-gutter);
   }
 
   .dark {
     width: 100%;
     max-width: none;
     margin-inline: 0;
-    padding-inline: 16px;
+    padding-inline: var(--mobile-gutter);
     padding-top: 68px;
     padding-bottom: 68px;
   }
@@ -1039,6 +1043,7 @@ h2 {
   .section-heading,
   .plans-heading,
   .plan-subheading {
+    width: 100%;
     gap: 14px;
     margin-bottom: 28px;
   }
@@ -1053,14 +1058,14 @@ h2 {
   .plans-heading h2,
   .plan-subheading h2 {
     max-width: 100%;
-    font-size: clamp(2rem, 9vw, 2.65rem);
-    line-height: 1.04;
+    font-size: clamp(2rem, 10vw, 2.9rem);
+    line-height: 1;
     overflow-wrap: anywhere;
   }
 
   .plan-subheading h2 {
     max-width: 100%;
-    font-size: clamp(1.85rem, 8vw, 2.2rem);
+    font-size: clamp(2rem, 9vw, 2.55rem);
   }
 
   .plans-heading p,
@@ -1142,11 +1147,11 @@ h2 {
   }
 
   .reveal.from-left {
-    transform: translate3d(-18px, 0, 0);
+    transform: translate3d(-32px, 0, 0);
   }
 
   .reveal.from-right {
-    transform: translate3d(18px, 0, 0);
+    transform: translate3d(32px, 0, 0);
   }
 
   .footer-nav {
