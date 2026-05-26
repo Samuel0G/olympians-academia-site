@@ -910,7 +910,7 @@ h2 {
 @media (max-width: 540px) {
   :root {
     --mobile-gutter: 18px;
-    --mobile-card-gap: 32px;
+    --mobile-card-gap: 24px;
   }
 
   .site-header {
@@ -1112,7 +1112,7 @@ h2 {
   }
 
   .plan-card {
-    padding: 22px;
+    padding: 20px;
   }
 
   .plans .plan-grid {
@@ -1122,7 +1122,12 @@ h2 {
 
   .plan-card .price,
   .assessment-grid .plan-card .price {
-    font-size: clamp(2.2rem, 12vw, 2.8rem);
+    font-size: clamp(2rem, 11vw, 2.6rem);
+  }
+
+  .plan-card .button {
+    min-height: 44px;
+    margin-top: 16px;
   }
 
   .plan-note {
@@ -1162,10 +1167,15 @@ h2 {
   }
 
   .whatsapp-float {
-    right: 14px;
-    bottom: 14px;
-    width: 52px;
-    height: 52px;
+    right: 12px;
+    bottom: 78px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .whatsapp-float svg {
+    width: 27px;
+    height: 27px;
   }
 
   .reveal,
