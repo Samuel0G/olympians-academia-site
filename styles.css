@@ -904,15 +904,70 @@ h2 {
 
 @media (max-width: 540px) {
   .site-header {
-    min-height: 100vh;
+    min-height: auto;
+  }
+
+  .nav {
+    width: min(100% - 24px, var(--max));
+    min-height: 72px;
+    gap: 12px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand strong {
+    font-size: 0.92rem;
+  }
+
+  .brand small {
+    font-size: 0.76rem;
+  }
+
+  .brand-mark {
+    width: 28px;
+    height: 40px;
+  }
+
+  .brand-mark svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  .nav-menu {
+    top: 66px;
   }
 
   .hero {
+    width: min(100% - 24px, var(--max));
+    gap: 28px;
+    padding-top: 44px;
     padding-bottom: 52px;
   }
 
+  .eyebrow,
+  .section-label {
+    margin-bottom: 12px;
+    font-size: 0.78rem;
+  }
+
   .hero h1 {
-    font-size: clamp(3rem, 17vw, 4.8rem);
+    max-width: 360px;
+    font-size: clamp(2.65rem, 14vw, 4.1rem);
+    line-height: 0.94;
+  }
+
+  .hero p {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.58;
   }
 
   .button,
@@ -920,13 +975,88 @@ h2 {
     width: 100%;
   }
 
+  .hero-stats {
+    width: 100%;
+    max-width: none;
+    gap: 12px;
+  }
+
+  .hero-stat {
+    padding: 18px;
+  }
+
+  .hero-stat strong {
+    font-size: 2.55rem;
+  }
+
+  .hero-stat .stat-number {
+    min-width: 0;
+  }
+
   .section {
+    width: min(100% - 24px, var(--max));
     padding: 68px 0;
   }
 
   .dark {
+    padding-inline: 12px;
     padding-top: 68px;
     padding-bottom: 68px;
+  }
+
+  h2,
+  .about-title {
+    font-size: clamp(2rem, 11vw, 3rem);
+    line-height: 1;
+  }
+
+  .about-title::before {
+    left: -2px;
+    font-size: 1.05em;
+  }
+
+  .section-heading,
+  .plans-heading,
+  .plan-subheading {
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  .section-heading p,
+  .about-grid p,
+  .plan-card p,
+  .experience-card p {
+    font-size: 0.97rem;
+  }
+
+  .experience-card h3,
+  .team-grid h3,
+  .plan-card h3 {
+    font-size: 1.28rem;
+  }
+
+  .plan-card {
+    padding: 22px;
+  }
+
+  .plan-card .price,
+  .assessment-grid .plan-card .price {
+    font-size: clamp(2.2rem, 12vw, 2.8rem);
+  }
+
+  .plan-note {
+    padding: 16px;
+    font-size: 0.82rem;
+    text-align: left;
+  }
+
+  .testimonial-grid blockquote {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .contact-section {
+    padding-inline: 12px;
   }
 
   .contact-list li {
@@ -943,6 +1073,18 @@ h2 {
 
   .map {
     height: 210px;
+  }
+
+  .contact-list a,
+  .contact-list span {
+    overflow-wrap: anywhere;
+  }
+
+  .whatsapp-float {
+    right: 14px;
+    bottom: 14px;
+    width: 52px;
+    height: 52px;
   }
 
   .footer-nav {
