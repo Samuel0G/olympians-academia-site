@@ -1146,12 +1146,10 @@ h2 {
     height: 52px;
   }
 
-  .reveal.from-left {
-    transform: translate3d(-32px, 0, 0);
-  }
-
+  .reveal,
+  .reveal.from-left,
   .reveal.from-right {
-    transform: translate3d(32px, 0, 0);
+    transform: translate3d(0, 24px, 0);
   }
 
   .footer-nav {
