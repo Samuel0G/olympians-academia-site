@@ -1089,6 +1089,20 @@ h2 {
     font-size: 1.28rem;
   }
 
+  .experience-card h3,
+  .team-grid h3 {
+    margin-top: 24px;
+  }
+
+  .experience-grid,
+  .team-grid,
+  .plan-grid,
+  .assessment-grid,
+  .testimonial-grid {
+    gap: 28px;
+    row-gap: 28px;
+  }
+
   .plan-card {
     padding: 22px;
   }
