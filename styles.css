@@ -910,7 +910,7 @@ h2 {
 @media (max-width: 540px) {
   :root {
     --mobile-gutter: 18px;
-    --mobile-card-gap: 32px;
+    --mobile-card-gap: 42px;
   }
 
   .site-header {
@@ -1100,9 +1100,7 @@ h2 {
   .plan-grid,
   .assessment-grid,
   .testimonial-grid {
-    display: flex;
-    flex-direction: column;
-    gap: var(--mobile-card-gap);
+    display: block;
   }
 
   .experience-card,
@@ -1113,6 +1111,14 @@ h2 {
     margin: 0;
   }
 
+  .experience-grid > * + *,
+  .team-grid > * + *,
+  .plan-grid > * + *,
+  .assessment-grid > * + *,
+  .testimonial-grid > * + * {
+    margin-top: var(--mobile-card-gap) !important;
+  }
+
   .plan-card {
     padding: 20px;
   }
@@ -1120,14 +1126,6 @@ h2 {
   .plans .plan-grid {
     width: 100%;
     margin-inline: 0;
-  }
-
-  .plan-grid > * + *,
-  .assessment-grid > * + *,
-  .experience-grid > * + *,
-  .team-grid > * + *,
-  .testimonial-grid > * + * {
-    margin-top: 0;
   }
 
   .plan-card .price,
