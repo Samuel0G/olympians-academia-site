@@ -1017,6 +1017,9 @@ h2 {
   }
 
   .dark {
+    width: 100vw;
+    max-width: 100vw;
+    margin-inline: calc(50% - 50vw);
     padding-inline: 0;
     padding-top: 68px;
     padding-bottom: 68px;
@@ -1042,24 +1045,29 @@ h2 {
 
   .plans-heading,
   .plan-subheading {
-    max-width: calc(100vw - 24px);
+    width: min(100% - 32px, var(--max));
+    max-width: none;
     margin-inline: auto;
   }
 
   .plans-heading h2,
   .plan-subheading h2 {
     max-width: 100%;
-    font-size: clamp(1.95rem, 10vw, 2.85rem);
+    font-size: clamp(2rem, 9vw, 2.65rem);
+    line-height: 1.04;
     overflow-wrap: anywhere;
   }
 
   .plan-subheading h2 {
-    max-width: 330px;
+    max-width: 100%;
+    font-size: clamp(1.85rem, 8vw, 2.2rem);
   }
 
   .plans-heading p,
   .plan-subheading p {
     max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.65;
     overflow-wrap: anywhere;
   }
 
@@ -1081,7 +1089,7 @@ h2 {
   }
 
   .plans .plan-grid {
-    width: min(100% - 24px, var(--max));
+    width: min(100% - 32px, var(--max));
     margin-inline: auto;
   }
 
